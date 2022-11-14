@@ -6,8 +6,6 @@ set -e
 # 构建
 npm run build
 
-# 进入构建文件夹
-
 # 如果你要部署到自定义域名
 echo 'itsman.org' > docs/CNAME
 

@@ -14,8 +14,8 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div class="card" >
-	  {{result.title}}	
+  <div class="detail">
+	  <h2>{{result.title}}	</h2>
 		{{result.createdAt}}
 		<span v-html="result.bodyHTML"></span>
   </div>
@@ -24,5 +24,9 @@ onMounted(()=>{
 <style scoped>
 .read-the-docs {
   color: #888;
+}
+.detail {
+	text-align:left;
+	
 }
 </style>

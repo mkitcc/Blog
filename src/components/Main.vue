@@ -26,17 +26,25 @@ onMounted(()=>{
 
 <template>
 	<div>
-	<li v-for="item in paper">
-		<div @click="openDetail(item.node.number)">
-			{{item.node.createdAt}}
-      {{item.node.title }}
-		</div>
-	</li>
+		<ul class='no-bullets'>
+			<li v-for="item in paper">
+			<div @click="openDetail(item.node.number)">
+				<h3>{{item.node.title }}</h3>
+				{{item.node.createdAt}}
+			</div>
+			</li>
+		</ul>
 	</div>
 </template>
 
 <style scoped>
 .read-the-docs {
   color: #888;
+}
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+	text-align:left
 }
 </style>
