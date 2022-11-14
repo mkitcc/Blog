@@ -1,8 +1,8 @@
 import { GraphQLClient, request, gql } from 'graphql-request'
 
 const url = 'https://api.github.com/graphql'
-const auth = 'bearer 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'
-const client = new GraphQLClient(url, { headers: {"Authorization":auth } })
+const auth = 'YmVhcmVyIGdocF9kS2FsVjB1ZlNCTGFyRHJDRlNWTldXMnN4eE1BZHcwRFhROHo='
+const client = new GraphQLClient(url, { headers: {"Authorization": atob(auth) } })
 
 
 const discussionlist= gql`{
