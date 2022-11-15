@@ -4,19 +4,16 @@ import {list} from '../api'
 import { useRouter } from 'vue-router'
 
 const paper:any = ref({})
+const paperInfo:any = ref({})
 const router = useRouter()
 
 function getList(p : number) {
-	let tmp = list().then((data)=> {
+	list().then((data)=>{
 		paper.value = data.edges
+		paperInfo.value = data.pageInfo
 	})
 }
 
-function openDetail(id :number) {
-	router.push({
-		path : '/detail/'+id,
-	})
-}
 
 onMounted(()=>{
 	getList(0)
@@ -25,10 +22,10 @@ onMounted(()=>{
 </script>
 
 <template>
-	<div>
+	<div id="main">
 		<ul class='no-bullets'>
-			<li v-for="item in paper">
-			<div @click="openDetail(item.node.number)">
+			<li v-for="item in paper" :key="item.node.number">
+			<div class="item" @click="router.push('/detail/'+item.node.number)">
 				<h3>{{item.node.title }}</h3>
 				{{item.node.createdAt}}
 			</div>
@@ -38,6 +35,13 @@ onMounted(()=>{
 </template>
 
 <style scoped>
+.item{
+}
+#main{
+  max-width: 1280px;
+  padding: 2rem;
+  text-align: center;
+}
 .read-the-docs {
   color: #888;
 }

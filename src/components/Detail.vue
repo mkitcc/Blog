@@ -7,9 +7,9 @@ const result:any= ref({})
 
 onMounted(()=>{
 	let id = + props.id
-	detail(id).then((data)=>{
+	 detail(id).then((data)=>{
 		result.value = data
-	})	
+	})
 })
 </script>
 

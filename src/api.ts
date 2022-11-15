@@ -1,11 +1,11 @@
-import { GraphQLClient, request, gql } from 'graphql-request'
+import { GraphQLClient, gql } from 'graphql-request'
 
 const url = 'https://api.github.com/graphql'
 const auth = 'YmVhcmVyIGdocF9kS2FsVjB1ZlNCTGFyRHJDRlNWTldXMnN4eE1BZHcwRFhROHo='
-const client = new GraphQLClient(url, { headers: {"Authorization": atob(auth) } })
+const client = new GraphQLClient(url, { headers: { "Authorization": atob(auth) } })
 
 
-const discussionlist= gql`{
+const discussionlist = gql`{
   repository(owner: "mkitcc", name: "Blog") {
     discussions(first: 10) {
       totalCount
@@ -49,7 +49,7 @@ const quire1 = `{
   }
 }`
 
-const discussiondetail= gql`query discussiondetail($number:Int!){
+const discussiondetail = gql`query discussiondetail($number:Int!){
   repository(owner: "mkitcc", name: "Blog") {
     discussion(number:$number) {
       title
@@ -60,13 +60,15 @@ const discussiondetail= gql`query discussiondetail($number:Int!){
 }`
 
 
-export function list() {
-	return client.request(discussionlist).then((data) => data.repository.discussions)
+export async function list() {
+	const data = await client.request(discussionlist)
+	return data.repository.discussions
 }
 
-export function detail(id : Number) {
-	const variables= {
-		number : id
+export async function detail(id: Number) {
+	const variables = {
+		number: id
 	}
-	return client.request(discussiondetail,variables).then((data) => data.repository.discussion)
+	const data = await client.request(discussiondetail, variables)
+	return data.repository.discussion
 }

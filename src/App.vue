@@ -2,28 +2,37 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 //import HelloWorld from './components/HelloWorld.vue'
-import { useRouter } from 'vue-router'
 
-const router = useRouter()
 
 </script>
 
 <template>
-	<div >
+	<div class="main">
+		<div class="header">
+				<ul>
+				<li><router-link to="/">Home</router-link> </li>	
+				<li><router-link to="/archive">Archive</router-link> </li>	
+				<li><router-link to="/about">About</router-link> </li>	
+				</ul>
+		</div>	
 		<router-view></router-view>
 	</div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+div.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+div.header {
+	height: 100px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+li{
+	float: left;
+	list-style-type: none;
+	padding-left: 1.5em;
+	font-size: 24px;
 }
 </style>
