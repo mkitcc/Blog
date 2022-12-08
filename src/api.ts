@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from 'graphql-request'
 
 const url = 'https://api.github.com/graphql'
-const auth = 'YmVhcmVyIGdocF9kS2FsVjB1ZlNCTGFyRHJDRlNWTldXMnN4eE1BZHcwRFhROHo='
+const auth = 'YmVhcmVyIGdocF9LTWtWNE1Qc09sWjFlR0N6ZkU0UVhaT3Q3cmNPUVAybDNsUFE='
 const client = new GraphQLClient(url, { headers: { "Authorization": atob(auth) } })
 
 

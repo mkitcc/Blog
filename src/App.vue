@@ -9,12 +9,18 @@
 <template>
 	<div class="main">
 		<div class="header">
-				<ul>
-				<li><router-link to="/">Home</router-link> </li>	
-				<li><router-link to="/archive">Archive</router-link> </li>	
-				<li><router-link to="/about">About</router-link> </li>	
-				</ul>
-		</div>	
+			<ul>
+				<li>
+					<router-link to="/">Home</router-link>
+				</li>
+				<li>
+					<router-link to="/archive">Archive</router-link>
+				</li>
+				<li>
+					<router-link to="/about">About</router-link>
+				</li>
+			</ul>
+		</div>
 		<router-view></router-view>
 	</div>
 </template>
@@ -25,11 +31,12 @@ div.main {
 	flex-direction: column;
 	align-items: center;
 }
+
 div.header {
 	height: 100px;
 }
 
-li{
+li {
 	float: left;
 	list-style-type: none;
 	padding-left: 1.5em;

@@ -1,32 +1,33 @@
 <script setup lang="ts">
-import {onMounted, ref } from 'vue'
-import {detail} from '../api'
+import { onMounted, ref } from 'vue'
+import { detail } from '../api'
 
-const props = defineProps<{ id: Number}>()
-const result:any= ref({})
+const props = defineProps<{ id: Number }>()
+const result: any = ref({})
 
-onMounted(()=>{
+onMounted(() => {
 	let id = + props.id
-	 detail(id).then((data)=>{
+	detail(id).then((data) => {
 		result.value = data
 	})
 })
 </script>
 
 <template>
-  <div class="detail">
-	  <h2>{{result.title}}	</h2>
-		{{result.createdAt}}
+	<div class="detail">
+		<h2>{{ result.title }} </h2>
+		{{ result.createdAt }}
 		<span v-html="result.bodyHTML"></span>
-  </div>
+	</div>
 </template>
 
 <style scoped>
 .read-the-docs {
-  color: #888;
+	color: #888;
 }
+
 .detail {
-	text-align:left;
-	
+	text-align: left;
+
 }
 </style>
